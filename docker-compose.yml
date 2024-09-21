@@ -1,0 +1,11 @@
+services:
+  client:
+    restart: unless-stopped
+    build:
+      context: ./
+      dockerfile: dockerfile
+    command: ['npm','run','start']
+    ports:
+      - ${CLIENT_PORT:-3000}:${CLIENT_PORT:-3000}
+    volumes:
+      - .:/home/frontend
